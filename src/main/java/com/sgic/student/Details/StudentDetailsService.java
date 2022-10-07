@@ -23,13 +23,13 @@ public class StudentDetailsService {
 	}
 	
      //AddStudent Method
-	public void addStudent(StudentDetails studentDetail) {
-		studentRepository.save(studentDetail);
+	public StudentDetails addStudent(StudentDetails studentDetail) {
+		return studentRepository.save(studentDetail);
 		
 	}
     //update Student Method: here save method can perform both actions
-	public void updateStudent(String id, StudentDetails studentDetail) {
-		studentRepository.save(studentDetail);
+	public StudentDetails updateStudent(String id, StudentDetails studentDetail) {
+		return studentRepository.save(studentDetail);
 		
 		/*for(int i=0;i<Students.size();i++) {
 			StudentDetails d=Students.get(i);
