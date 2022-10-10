@@ -1,6 +1,9 @@
 package com.sgic.student.Details;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +14,9 @@ import javax.persistence.Table;
 public class StudentDetails {
    
 	@Id // setup the primary 
-	private String id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(unique=true)
+	private long id;
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -24,10 +29,11 @@ public class StudentDetails {
 		
 	}
 	
-	public StudentDetails(String id, String firstName, String lastName, String address, int mobileNumber, String email,
+	public StudentDetails( String firstName, String lastName, String address, int mobileNumber, String email,
 			String dateOfBirth, int age) {
 		super();
-		this.id = id;
+		
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -39,10 +45,10 @@ public class StudentDetails {
 	
 	
 	
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -88,7 +94,11 @@ public class StudentDetails {
 		this.age = age;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "StudentDetails[id="+id+", firstName="+firstName+",lastName="+lastName+",address="+address+",mobileNumber="+mobileNumber+","
+				+ "email="+email+",DateOfBirth="+DateOfBirth+",age="+age+"]";
+	}
 	
 	
  }

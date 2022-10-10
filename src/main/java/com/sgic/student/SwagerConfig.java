@@ -21,7 +21,7 @@ public class SwagerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 		.select()
 		.paths(PathSelectors.any())
-		.apis(RequestHandlerSelectors.basePackage("com.sgic.student.Details"))
+		.apis(RequestHandlerSelectors.basePackage("com.sgic.student.controller"))
 		.build()
 		.apiInfo(metaApi());
 	}

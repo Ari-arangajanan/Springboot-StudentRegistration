@@ -27,8 +27,11 @@ public class StudentDetailsService {
 		return studentRepository.save(studentDetail);
 		
 	}
+	
+	
+	
     //update Student Method: here save method can perform both actions
-	public StudentDetails updateStudent(String id, StudentDetails studentDetail) {
+	public StudentDetails updateStudent(Long id, StudentDetails studentDetail) {
 		return studentRepository.save(studentDetail);
 		
 		/*for(int i=0;i<Students.size();i++) {
@@ -39,15 +42,15 @@ public class StudentDetailsService {
 			}
 		}*/
 	}
+	//get one student
 
-	public StudentDetails getStudent(String id) {
+	public StudentDetails getStudent(Long id) {
 		//return Students.stream().filter(t->t.getId().equals(id)).findFirst().get(); //find from hard code
 		return studentRepository.findById(id).orElse(null);
 	}
-
 	
 
-	public void deleteStudent(String id) {
+	public void deleteStudent(Long id) {
 		//Students.removeIf(t->t.getId().equals(id));
 		studentRepository.deleteById(id);
 		

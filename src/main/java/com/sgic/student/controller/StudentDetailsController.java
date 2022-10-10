@@ -1,4 +1,4 @@
-package com.sgic.student.Details;
+package com.sgic.student.controller;
 
 import java.util.List;
 
@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.student.*;
+import com.sgic.student.Details.StudentDetails;
+import com.sgic.student.Details.StudentDetailsService;
+
 
 @RestController //
 
@@ -38,7 +41,7 @@ public class StudentDetailsController {
 	
 	//request by data by id
 	@RequestMapping(Constants.STUDENT)
-	public StudentDetails getStudent(@PathVariable String id) {
+	public StudentDetails getStudent(@PathVariable long id) {
 		log.debug("Request {}",id);
 		StudentDetails Response1=studentDetailsService.getStudent(id);
 		log.debug("Responce {}",Response1);
@@ -48,7 +51,7 @@ public class StudentDetailsController {
 	
 	//update data method
 	@PutMapping(Constants.UPDATE)
-	public StudentDetails updateStudentsData(@RequestBody StudentDetails studentDetail, @PathVariable String id ) {
+	public StudentDetails updateStudentsData(@RequestBody StudentDetails studentDetail, @PathVariable long id ) {
 		log.debug("Request {}",studentDetail);
 		StudentDetails updateResponse=studentDetailsService.updateStudent(id, studentDetail);
 		log.debug("Responce {}",updateResponse);
@@ -66,7 +69,7 @@ public class StudentDetailsController {
 		return addStudent;
 	}
 	@DeleteMapping(Constants.DELETE)
-	public ResponseEntity<String> deleteStudent(@PathVariable String id) {
+	public ResponseEntity<String> deleteStudent(@PathVariable long id) {
 		log.debug("Request {}",id);
 		studentDetailsService.deleteStudent(id);
 		log.debug("Responce {}",id);

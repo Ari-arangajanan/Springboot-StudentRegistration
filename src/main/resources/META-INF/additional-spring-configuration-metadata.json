@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "Hibernate",
+    "type": "java.lang.String",
+    "description": "A description for 'Hibernate'"
+  },
+  {
+    "name": "Spring.jpa.properties.hibrinate.jdbc.lob.non_contextual_creation",
+    "type": "java.lang.String",
+    "description": "A description for 'Spring.jpa.properties.hibrinate.jdbc.lob.non_contextual_creation'"
+  }
+]}
